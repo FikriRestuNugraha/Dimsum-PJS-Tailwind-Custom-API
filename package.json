@@ -1,0 +1,16 @@
+{
+  "name": "dimsum-pjs-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Website Dimsum PJS dengan HTML, Tailwind CSS, JavaScript, dan REST API buatan sendiri",
+  "scripts": {
+    "build:css": "@tailwindcss/cli -i ./src/input.css -o ./assets/css/tailwind.css --minify",
+    "watch:css": "@tailwindcss/cli -i ./src/input.css -o ./assets/css/tailwind.css --watch",
+    "start": "node server.js",
+    "dev": "npm run build:css && node server.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}
