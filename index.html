@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#790c09">
+  <meta name="description" content="Dimsum PJS — besar bentuknya, besar nikmatnya. Pilih menu dimsum favorit dan pesan melalui WhatsApp.">
+  <title>Dimsum PJS — Besar bentuknya, Besar nikmatnya.</title>
+  <link rel="icon" type="image/webp" href="assets/images/logo-dimsum-pjs.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-cream font-sans text-ink antialiased selection:bg-maroon selection:text-paper">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-3 focus:shadow-lg">Lewati ke konten</a>
+
+  <!-- Header -->
+  <header id="top" class="sticky top-0 z-50 border-b border-maroon/10 bg-maroon text-paper shadow-lg shadow-maroon/10">
+    <div class="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-10">
+      <a href="#top" class="flex shrink-0 items-center gap-3" aria-label="Dimsum PJS, kembali ke beranda">
+        <img src="assets/images/logo-dimsum-pjs.webp" alt="Logo Dimsum PJS" class="h-12 w-12 rounded-full object-cover sm:h-14 sm:w-14">
+        <span class="font-serif text-2xl leading-none sm:text-3xl">Dimsum PJS</span>
+      </a>
+
+      <button id="menu-toggle" type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-2xl md:hidden" aria-label="Buka navigasi" aria-expanded="false" aria-controls="primary-nav">☰</button>
+
+      <nav id="primary-nav" class="absolute left-0 right-0 top-full hidden flex-col gap-1 border-t border-white/15 bg-maroon px-5 py-4 text-sm font-bold tracking-[0.12em] shadow-xl md:static md:flex md:flex-row md:items-center md:gap-9 md:border-0 md:bg-transparent md:p-0 md:shadow-none" aria-label="Navigasi utama">
+        <a class="rounded-lg px-3 py-2 transition hover:bg-white/10" href="#menu">MENU</a>
+        <a class="rounded-lg px-3 py-2 transition hover:bg-white/10" href="#story">STORY</a>
+        <a class="rounded-lg px-3 py-2 transition hover:bg-white/10" href="#location">LOCATION</a>
+      </nav>
+
+      <a href="#menu" class="hidden rounded-full bg-dark px-7 py-4 text-xs font-extrabold tracking-wide text-paper transition hover:bg-black sm:inline-flex">ORDER NOW</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-cream-deep">
+      <div class="mx-auto grid max-w-[1280px] items-center gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[1fr_1.05fr] lg:px-10 lg:py-24">
+        <div class="relative z-10 animate-fade-up">
+          <p class="mb-5 text-xs font-extrabold uppercase tracking-[0.28em] text-maroon-card">DIMSUM HANGAT · PILIHAN FAVORIT</p>
+          <h1 class="max-w-2xl font-serif text-5xl leading-[1.08] text-ink sm:text-6xl lg:text-7xl">Besar bentuknya,<br><em class="text-maroon">Besar nikmatnya.</em></h1>
+          <p class="mt-6 max-w-md text-base leading-8 text-muted sm:text-lg">Dim sum hangat, pilihan simpel,<br class="hidden sm:block"> tinggal pesan.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#menu" class="inline-flex items-center gap-3 rounded-full bg-maroon px-7 py-4 text-sm font-bold text-paper shadow-soft transition hover:-translate-y-0.5 hover:bg-maroon-hover">Lihat menu <span aria-hidden="true">↗</span></a>
+            <a href="#menu" class="inline-flex items-center rounded-full border border-maroon/35 px-7 py-4 text-sm font-bold text-maroon transition hover:bg-white/50">Pesan sekarang</a>
+          </div>
+        </div>
+        <div class="relative mx-auto w-full max-w-2xl animate-fade-up [animation-delay:120ms]">
+          <div class="absolute -inset-4 rounded-[3rem] border border-maroon/15 sm:-inset-6"></div>
+          <img src="assets/images/hero-menu.webp" alt="Aneka dimsum Dimsum PJS" fetchpriority="high" class="relative aspect-[1.22/1] w-full rounded-[2.5rem] object-cover shadow-soft sm:rounded-[3rem]">
+          <div class="absolute -bottom-5 -left-2 rounded-2xl bg-maroon px-5 py-4 text-paper shadow-soft sm:-left-5 sm:px-7">
+            <span class="block text-[10px] font-bold uppercase tracking-[0.24em] text-white/70">DIMSUM PJS</span>
+            <strong class="mt-1 block font-serif text-2xl italic sm:text-3xl">Freshly made</strong>
+          </div>
+          <span class="absolute -right-2 -top-5 grid h-16 w-16 place-items-center rounded-full border-4 border-cream bg-paper font-serif text-xl text-maroon shadow-lg sm:-right-5 sm:h-20 sm:w-20 sm:text-2xl">PJS</span>
+        </div>
+      </div>
+      <div class="h-2 bg-maroon"></div>
+    </section>
+
+    <!-- Menu utama: seluruh data dimuat dari API /api/menu?group=regular -->
+    <section id="menu" class="scroll-mt-24 bg-cream px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24" aria-labelledby="menu-title">
+      <div class="mx-auto max-w-[1280px]">
+        <div class="mx-auto mb-10 max-w-2xl text-center">
+          <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-maroon-card">PILIHAN HARI INI</p>
+          <h2 id="menu-title" class="font-serif text-4xl leading-tight text-ink sm:text-5xl">Pilihan Menu Dimsum<br><em class="text-maroon">Favoritmu.</em></h2>
+          <p class="mt-5 text-sm leading-7 text-muted sm:text-base">Nikmati berbagai varian dimsum berkualitas, dengan rasa autentik dan bahan pilihan terbaik.</p>
+        </div>
+
+        <p id="menu-status" class="mx-auto mb-7 max-w-xl rounded-2xl border border-maroon/10 bg-white/80 px-5 py-4 text-center text-sm text-muted" role="status" aria-live="polite">Memuat menu Dimsum PJS dari API...</p>
+        <div id="menu-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Special Edition: juga berasal dari API -->
+    <section id="story" class="scroll-mt-24 bg-maroon px-5 py-16 text-paper sm:px-8 sm:py-20 lg:px-10 lg:py-24" aria-labelledby="special-title">
+      <div class="mx-auto max-w-[1280px]">
+        <div class="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-white/60">DIMSUM PJS · LIMITED SELECTION</p>
+            <h2 id="special-title" class="font-serif text-4xl sm:text-6xl">Special <em class="text-cream-deep">Edition.</em></h2>
+          </div>
+          <p class="max-w-md text-sm leading-7 text-white/75">Pilihan paket spesial untuk dinikmati bersama. Informasi menu dan harga dimuat dari API yang sama.</p>
+        </div>
+
+        <p id="special-status" class="mb-7 rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-center text-sm text-white/80" role="status" aria-live="polite">Memuat menu spesial...</p>
+        <div id="special-grid" class="grid grid-cols-1 gap-6 lg:grid-cols-3" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Alur pemesanan yang sudah ada -->
+    <section class="bg-cream-deep px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24" aria-labelledby="flow-title">
+      <div class="mx-auto max-w-[1280px]">
+        <div class="mx-auto mb-10 max-w-2xl text-center">
+          <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-maroon-card">MUDAH DAN PRAKTIS</p>
+          <h2 id="flow-title" class="font-serif text-4xl leading-tight text-ink sm:text-5xl">Alur Cepat.<br><em class="text-maroon">Tanpa Hambatan.</em></h2>
+          <p class="mt-4 text-sm leading-7 text-muted">Lihat menu, pilih yang kamu mau, lalu lanjut order.</p>
+        </div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <article class="rounded-3xl border border-maroon/10 bg-paper p-7 shadow-sm">
+            <span class="font-serif text-4xl text-maroon/45">01</span>
+            <h3 class="mt-4 font-serif text-2xl">Pilih Menu</h3>
+            <p class="mt-2 text-sm leading-7 text-muted">Lihat pilihan dimsum, foto, dan harga sebelum memesan.</p>
+          </article>
+          <article class="rounded-3xl border border-maroon/10 bg-paper p-7 shadow-sm">
+            <span class="font-serif text-4xl text-maroon/45">02</span>
+            <h3 class="mt-4 font-serif text-2xl">Atur Pesanan</h3>
+            <p class="mt-2 text-sm leading-7 text-muted">Tambahkan menu ke keranjang dan atur jumlah yang diinginkan.</p>
+          </article>
+          <article class="rounded-3xl border border-maroon/10 bg-paper p-7 shadow-sm">
+            <span class="font-serif text-4xl text-maroon/45">03</span>
+            <h3 class="mt-4 font-serif text-2xl">Lanjut WhatsApp</h3>
+            <p class="mt-2 text-sm leading-7 text-muted">Kirim ringkasan pesanan ke admin untuk konfirmasi.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lokasi -->
+    <section id="location" class="scroll-mt-24 bg-cream px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24" aria-labelledby="location-title">
+      <div class="mx-auto max-w-[1280px]">
+        <div class="mb-10 text-center">
+          <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-maroon-card">KUNJUNGI KAMI</p>
+          <h2 id="location-title" class="font-serif text-4xl text-ink sm:text-5xl">Temukan Dimsum <em class="text-maroon">PJS.</em></h2>
+          <p class="mt-4 text-sm leading-7 text-muted">Area Dimsum PJS, tempat menikmati dimsum yang hangat.</p>
+        </div>
+        <div class="grid overflow-hidden rounded-[2rem] border border-maroon/10 bg-paper shadow-soft lg:grid-cols-[.85fr_1.15fr]">
+          <div class="flex flex-col justify-center p-7 sm:p-10">
+            <div class="mb-7 flex gap-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-cream-deep text-xl text-maroon">⌖</span>
+              <div><p class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-muted">LOCATION POINT</p><strong class="mt-1 block text-lg">Jalan Hutan Lindung</strong><p class="mt-1 text-sm text-muted">Kota Tanjungpinang, Kepulauan Riau</p></div>
+            </div>
+            <div class="mb-7 flex gap-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-cream-deep text-xl text-maroon">◷</span>
+              <div><p class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-muted">OPERATIONAL TIME</p><strong class="mt-1 block text-lg">13:30 – 18:00</strong><p class="mt-1 text-sm text-muted">Senin – Minggu</p></div>
+            </div>
+            <div class="mb-8 flex gap-2 text-[10px] font-extrabold tracking-[0.16em] text-maroon"><span class="rounded-full bg-cream-deep px-4 py-2">DINE-IN</span><span class="rounded-full bg-cream-deep px-4 py-2">TAKEAWAY</span></div>
+            <a href="https://maps.app.goo.gl/sZopZzH5buVXBTMB9" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit items-center gap-3 rounded-full bg-dark px-7 py-4 text-sm font-bold text-paper transition hover:bg-maroon">Open Map <span>↗</span></a>
+          </div>
+          <div class="min-h-[320px] bg-cream-deep">
+            <iframe title="Peta Jalan Hutan Lindung, Tanjungpinang" class="h-full min-h-[320px] w-full border-0" src="https://maps.google.com/maps?q=Jalan%20Hutan%20Lindung%2C%20Kota%20Tanjungpinang%2C%20Kepulauan%20Riau%2C%20Indonesia&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA akhir -->
+    <section class="bg-dark px-5 py-16 text-center text-paper sm:px-8 sm:py-20">
+      <p class="mb-3 text-xs font-extrabold uppercase tracking-[0.28em] text-white/55">DIMSUM PJS · FRESHLY MADE</p>
+      <h2 class="font-serif text-4xl leading-tight sm:text-6xl">Sudah tahu<br><em class="text-cream-deep">mau pilih yang mana?</em></h2>
+      <p class="mx-auto mt-4 max-w-lg text-sm leading-7 text-white/70">Menu sudah ada. Tinggal pesan.</p>
+      <button id="final-whatsapp-order" type="button" class="mt-8 inline-flex items-center gap-3 rounded-full bg-maroon px-8 py-4 text-sm font-extrabold text-paper transition hover:bg-red">ORDER VIA WHATSAPP <span>↗</span></button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-maroon px-5 py-9 text-paper sm:px-8">
+    <div class="mx-auto flex max-w-[1280px] flex-col justify-between gap-6 sm:flex-row sm:items-end">
+      <div>
+        <a href="#top" class="font-serif text-3xl">DIMSUM PJS.</a>
+        <p class="mt-1 text-[10px] font-bold tracking-[0.24em] text-white/60">DIMSUM HOUSE</p>
+        <p class="mt-2 text-xs text-white/70">Tanjungpinang · Kepulauan Riau</p>
+      </div>
+      <div class="text-xs text-white/70 sm:text-right">
+        <nav class="mb-3 flex gap-5 font-bold tracking-[0.15em]"><a href="#menu" class="hover:text-white">MENU</a><a href="#story" class="hover:text-white">STORY</a><a href="#location" class="hover:text-white">LOCATION</a></nav>
+        <small>© <span id="year"></span> Dimsum PJS. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tombol keranjang -->
+  <button id="cart-open" type="button" class="fixed bottom-5 right-5 z-50 hidden items-center gap-3 rounded-full bg-maroon px-5 py-4 font-bold text-paper shadow-soft transition hover:-translate-y-1 hover:bg-maroon-hover" aria-label="Buka ringkasan pesanan" aria-haspopup="dialog">
+    <svg viewBox="0 0 24 24" class="h-5 w-5 fill-none stroke-current stroke-2" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+    <span>Pesanan</span><span id="cart-count" class="grid h-6 min-w-6 place-items-center rounded-full bg-paper px-1 text-xs text-maroon">0</span>
+  </button>
+
+  <!-- Drawer keranjang -->
+  <div id="cart-overlay" class="fixed inset-0 z-[60] hidden bg-black/55" aria-hidden="true"></div>
+  <aside id="cart-drawer" class="fixed inset-y-0 right-0 z-[70] hidden w-full max-w-md translate-x-full flex-col bg-paper shadow-2xl transition-transform duration-300" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="flex items-center justify-between border-b border-maroon/10 px-6 py-5">
+      <div><p class="text-[10px] font-extrabold uppercase tracking-[0.22em] text-maroon-card">DIMSUM PJS</p><h2 id="cart-title" class="mt-1 font-serif text-3xl">Pesananmu</h2></div>
+      <button id="cart-close" type="button" class="grid h-10 w-10 place-items-center rounded-full bg-cream-deep text-2xl text-maroon transition hover:bg-maroon hover:text-white" aria-label="Tutup keranjang">×</button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-6 py-5">
+      <div id="cart-empty" class="py-12 text-center">
+        <span class="font-serif text-5xl text-maroon/35">＋</span>
+        <strong class="mt-4 block text-lg">Belum ada menu dipilih</strong>
+        <p class="mt-2 text-sm leading-6 text-muted">Pilih dimsum favoritmu, lalu tambahkan ke pesanan.</p>
+        <button type="button" data-close-cart data-scroll="#menu" class="mt-5 rounded-full bg-maroon px-6 py-3 text-sm font-bold text-paper">Lihat menu</button>
+      </div>
+      <div id="cart-items" class="space-y-4"></div>
+      <div id="cart-form" class="mt-7 hidden space-y-4 border-t border-maroon/10 pt-6">
+        <label class="block text-sm font-bold" for="customer-name">Nama (opsional)<input id="customer-name" type="text" maxlength="60" placeholder="Nama pemesan" class="mt-2 min-h-11 w-full rounded-xl border border-maroon/15 bg-white px-4 text-sm font-normal outline-none focus:border-maroon"></label>
+        <fieldset><legend class="mb-2 text-sm font-bold">Jenis layanan</legend><div class="flex gap-3 text-sm"><label class="flex items-center gap-2"><input type="radio" name="service" value="Dine-in" class="accent-maroon"> Dine-in</label><label class="flex items-center gap-2"><input type="radio" name="service" value="Takeaway" checked class="accent-maroon"> Takeaway</label></div></fieldset>
+        <label class="block text-sm font-bold" for="order-note">Catatan (opsional)<textarea id="order-note" rows="2" maxlength="240" placeholder="Contoh: saus dipisah" class="mt-2 w-full rounded-xl border border-maroon/15 bg-white px-4 py-3 text-sm font-normal outline-none focus:border-maroon"></textarea></label>
+      </div>
+    </div>
+    <div id="cart-footer" class="hidden border-t border-maroon/10 bg-white px-6 py-5">
+      <div class="mb-4 flex items-center justify-between"><span class="text-sm font-bold text-muted">Estimasi total</span><strong id="cart-total" class="text-lg text-maroon">Rp0</strong></div>
+      <button id="checkout-whatsapp" type="button" class="w-full rounded-full bg-maroon px-6 py-4 text-sm font-extrabold text-white transition hover:bg-maroon-hover">CHECKOUT VIA WHATSAPP ↗</button>
+      <p class="mt-3 text-center text-[11px] leading-5 text-muted">Pesanan akan dikirim ke WhatsApp untuk konfirmasi.</p>
+    </div>
+  </aside>
+
+  <div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 z-[90] hidden -translate-x-1/2 rounded-full bg-dark px-5 py-3 text-center text-sm font-semibold text-white shadow-xl" role="status" aria-live="polite"></div>
+</body>
+</html>
