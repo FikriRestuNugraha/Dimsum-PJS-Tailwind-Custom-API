@@ -1,0 +1,10 @@
+# Pastikan setiap format sumber dikenali GitHub Linguist.
+*.html linguist-language=HTML
+*.js linguist-language=JavaScript
+*.css linguist-language=CSS linguist-generated=false
+*.json linguist-language=JSON
+*.md linguist-language=Markdown
+
+# Tailwind CSS ini adalah hasil build yang tetap perlu dapat dibaca
+# dan dihitung sebagai CSS pada ringkasan bahasa repository.
+assets/css/tailwind.css linguist-generated=false linguist-language=CSS
