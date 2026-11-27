@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ayam",
+    "name": "Dimsum Ayam",
+    "description": "Dimsum kukus dengan isian daging ayam yang gurih.",
+    "price": 17000,
+    "unit": "porsi",
+    "image": "assets/images/dimsum-ayam.webp",
+    "group": "regular",
+    "category": "Dimsum Kukus"
+  },
+  {
+    "id": "udang",
+    "name": "Dimsum Udang",
+    "description": "Dimsum kukus dengan isian daging udang.",
+    "price": 17000,
+    "unit": "porsi",
+    "image": "assets/images/dimsum-udang.webp",
+    "group": "regular",
+    "category": "Dimsum Kukus"
+  },
+  {
+    "id": "nori",
+    "name": "Dimsum Nori",
+    "description": "Dimsum dengan balutan nori yang khas.",
+    "price": 17000,
+    "unit": "porsi",
+    "image": "assets/images/dimsum-nori.webp",
+    "group": "regular",
+    "category": "Dimsum Kukus"
+  },
+  {
+    "id": "mozzarella",
+    "name": "Dimsum Ayam Mozarella",
+    "description": "Dimsum ayam dengan tambahan keju mozzarella.",
+    "price": 22000,
+    "unit": "porsi",
+    "image": "assets/images/dimsum-ayam-mozzarella.webp",
+    "group": "regular",
+    "category": "Menu Favorit"
+  },
+  {
+    "id": "kepiting",
+    "name": "Dimsum Kepiting",
+    "description": "Dimsum kukus dengan isian daging kepiting.",
+    "price": 18000,
+    "unit": "porsi",
+    "image": "assets/images/dimsum-kepiting.webp",
+    "group": "regular",
+    "category": "Dimsum Kukus"
+  },
+  {
+    "id": "norimentai",
+    "name": "Dimsum Norimentaiyaki Supreme",
+    "description": "Dimsum dengan taburan saus mentai dan nori.",
+    "price": 55000,
+    "unit": "porsi",
+    "image": "assets/images/dimsum-norimentaiyaki.webp",
+    "group": "regular",
+    "category": "Special Topping"
+  },
+  {
+    "id": "mentai-stream",
+    "name": "Mentai Stream",
+    "description": "Kombinasi siomay daging lembut dengan saus mentai gurih dan aroma smoky.",
+    "price": 150000,
+    "unit": "paket",
+    "image": "assets/images/special-mentai-stream.webp",
+    "group": "special",
+    "category": "24 pcs",
+    "quote": "soft inside. Bold on top.",
+    "serving": "24 pcs"
+  },
+  {
+    "id": "original-delight",
+    "name": "Original Delight",
+    "description": "Dimsum ayam bertekstur lembut dengan isian gurih dan topping pilihan.",
+    "price": 131000,
+    "unit": "paket",
+    "image": "assets/images/special-original-delight.webp",
+    "group": "special",
+    "category": "24 pcs",
+    "quote": "soft, savory, and full of flavor.",
+    "serving": "24 pcs"
+  },
+  {
+    "id": "dimsum-mix",
+    "name": "Dimsum Mix",
+    "description": "Perpaduan dimsum original dan mentai dalam satu sajian.",
+    "price": 145000,
+    "unit": "paket",
+    "image": "assets/images/special-dimsum-mix.webp",
+    "group": "special",
+    "category": "24 pcs",
+    "quote": "two flavors, one delicious bite.",
+    "serving": "24 pcs"
+  }
+]
