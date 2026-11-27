@@ -4,7 +4,7 @@
   "private": true,
   "description": "Website Dimsum PJS dengan HTML, Tailwind CSS, JavaScript, dan REST API buatan sendiri",
   "scripts": {
-    "build:css": "@tailwindcss/cli -i ./src/input.css -o ./assets/css/tailwind.css --minify",
+    "build:css": "@tailwindcss/cli -i ./src/input.css -o ./assets/css/tailwind.css",
     "watch:css": "@tailwindcss/cli -i ./src/input.css -o ./assets/css/tailwind.css --watch",
     "start": "node server.js",
     "dev": "npm run build:css && node server.js"
