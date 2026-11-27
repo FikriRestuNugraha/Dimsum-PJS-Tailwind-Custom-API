@@ -3,7 +3,6 @@
 const http = require('node:http');
 const fs = require('node:fs/promises');
 const path = require('node:path');
-const zlib = require('node:zlib');
 const { URL } = require('node:url');
 
 const ROOT = __dirname;
@@ -81,20 +80,9 @@ async function serveStatic(pathname, response) {
   }
 
   try {
-    let actualPath = filePath;
-    let file;
-    try {
-      const stat = await fs.stat(filePath);
-      actualPath = stat.isDirectory() ? path.join(filePath, 'index.html') : filePath;
-      file = await fs.readFile(actualPath);
-    } catch (error) {
-      // Compiled Tailwind is stored compressed in the repository to reduce its size.
-      // If a normal CSS build is present, it takes precedence over the compressed fallback.
-      if (path.extname(filePath).toLowerCase() !== '.css') throw error;
-      const compressedCss = await fs.readFile(`${filePath}.gz`);
-      file = zlib.gunzipSync(compressedCss);
-      actualPath = filePath;
-    }
+    const stat = await fs.stat(filePath);
+    const actualPath = stat.isDirectory() ? path.join(filePath, 'index.html') : filePath;
+    const file = await fs.readFile(actualPath);
 
     const extension = path.extname(actualPath).toLowerCase();
     response.writeHead(200, {
