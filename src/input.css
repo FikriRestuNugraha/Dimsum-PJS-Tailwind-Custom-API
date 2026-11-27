@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@source "../index.html";
+@source "../script.js";
+
+@theme {
+  --color-cream: #fff3df;
+  --color-cream-deep: #f7e6cc;
+  --color-maroon: #790c09;
+  --color-maroon-card: #8c3437;
+  --color-maroon-hover: #74272b;
+  --color-red: #bd2c1d;
+  --color-ink: #2b211d;
+  --color-dark: #24211f;
+  --color-muted: #795f52;
+  --color-paper: #fffaf2;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-sans: "Inter", Arial, sans-serif;
+  --shadow-soft: 0 18px 45px rgba(72, 25, 20, .12);
+  --animate-fade-up: fade-up .55s ease-out both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
